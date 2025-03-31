@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<StatDef Name="DS_HediffAdderStat">
+		<defName>HediffAdder</defName>
+		<label>hediff to add</label>
+		<description>This is the hediff this weapon can add to the target pawn via attacking them.</description>
+		<category>Weapon</category>
+		<defaultBaseValue>1</defaultBaseValue>
+		<displayPriorityInCategory>10</displayPriorityInCategory>
+		<workerClass>DestinyMod.StatWorker_HediffAdder</workerClass>
+	</StatDef>
+	
+</Defs>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- arc damage -->
+<!-- bonus damage to shields, stuns pawns, can chain zap nearby pawns -->
+<HediffDef>
+		<defName>DS_Arc</defName>
+		<label>arc proc</label>
+		<description>This pawn is crackling with potent arc energy. They will suffer reduced movement as their body seizes up, and might chain arc energy to nearby pawns.</description>
+		<hediffClass>DestinyMod.Hediff_DM_Arc</hediffClass>
+		<defaultLabelColor>(0, 1, 1)</defaultLabelColor>
+		<isBad>True</isBad>
+		<comps>
+		  <li Class="HediffCompProperties_Disappears">
+			<showRemainingTime>True</showRemainingTime>
+			<disappearsAfterTicks>600</disappearsAfterTicks>
+		  </li>
+		</comps>
+		<stages>
+		<li>
+            <capMods>
+                <li>
+                    <capacity>Moving</capacity>
+                    <offset>-0.2</offset>
+                </li>
+            </capMods>
+        </li>
+		</stages>
+</HediffDef>
+
+</Defs>
