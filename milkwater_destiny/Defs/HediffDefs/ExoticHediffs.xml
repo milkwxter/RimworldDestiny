@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- riskrunner effect, make gun fire fast -->
+	<HediffDef>
+		<defName>DS_RiskrunnerEffect</defName>
+		<label>arc supercharger</label>
+		<description>This pawn is crackling with potent arc energy. Their weapon is overcharged and will fire incredibly fast!</description>
+		<hediffClass>DestinyMod.Hediff_DM_RiskrunnerEffect</hediffClass>
+		<defaultLabelColor>(0, 1, 1)</defaultLabelColor>
+		<isBad>False</isBad>
+		<stages>
+			<li>
+				<statOffsets>
+					<AimingDelayFactor>-0.5</AimingDelayFactor>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

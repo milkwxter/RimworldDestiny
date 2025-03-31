@@ -36,7 +36,7 @@
 	</ThingDef>
 
   <!--===== Riskrunner =====-->
-  <ThingDef  ParentName="DS_Laser_Generic" Class="DestinyMod.LaserBeamDestinyDef">
+  <ThingDef ParentName="DS_Laser_Generic" Class="DestinyMod.LaserBeamDestinyDef">
 		<defName>DS_Laser_Riskrunner</defName>
 		<label>riskrunner laser</label>
 		<textures>
@@ -57,6 +57,8 @@
   <ThingDef ParentName="BaseHumanMakeableGun">
     <defName>m_Riskrunner</defName>
     <label>Riskrunner</label>
+	<thingClass>DestinyMod.ThingExoticRiskrunner</thingClass>
+    <equipmentType>Primary</equipmentType>
     <description>Charge your soul and let the electrons sing.</description>
     <graphicData>
       <texPath>Things/Weapons/m_riskrunner</texPath>
@@ -65,7 +67,7 @@
     </graphicData>
     <equippedAngleOffset>0</equippedAngleOffset>
     <soundInteract>Interact_ChargeRifle</soundInteract>
-   <recipeMaker>
+    <recipeMaker>
       <researchPrerequisite>ChargedShot</researchPrerequisite>
       <skillRequirements>
         <Crafting>7</Crafting>
