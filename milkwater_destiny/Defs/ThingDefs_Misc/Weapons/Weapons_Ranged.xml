@@ -6,6 +6,7 @@
 	<ThingDef ParentName="DS_Laser_Generic" Class="DestinyMod.LaserBeamDestinyDef">
 		<defName>DS_Laser_Riskrunner</defName>
 		<label>riskrunner laser</label>
+		<thingClass>DestinyMod.LaserBeamRiskrunner</thingClass>
 		<textures>
 			<li>Things/Projectile/Shot_LaserSmall</li>
 		</textures>

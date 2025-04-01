@@ -24,7 +24,7 @@ namespace DestinyMod
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
-            // make sure to include weapons that are equipped on pawns
+            // make sure to NOT include weapons that are equipped on pawns
             if (this.Map == null)
             {
                 // do my custom despawn

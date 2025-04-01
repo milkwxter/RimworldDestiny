@@ -52,7 +52,6 @@ namespace DestinyMod
                 }
 
                 // zapping time
-                int zapperTicksRemaining = 2 * 60;
                 foreach (Pawn pawnToZap in pawnsToZap)
                 {
                     pawnToZap.TakeDamage(zapped);
@@ -62,12 +61,7 @@ namespace DestinyMod
                     Vector3 start = pawn.DrawPos;
                     Vector3 end = pawnToZap.DrawPos;
                     Material zapMat = MaterialPool.MatFrom("Things/Projectile/Shot_ArcLightning");
-                    if (zapperTicksRemaining > 0)
-                    {
-                        zapperTicksRemaining--;
-                        GenDraw.DrawLineBetween(start, end, zapMat, 5f);
-                    }
-                    zapperTicksRemaining = 2 * 60;
+                    GenDraw.DrawLineBetween(start, end, zapMat, 5f);
                 }
             }
         }
