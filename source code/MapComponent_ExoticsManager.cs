@@ -13,11 +13,19 @@ namespace DestinyMod
             exotics = new List<ThingWithExoticBehavior>();
         }
 
+        public override void FinalizeInit()
+        {
+            base.FinalizeInit();
+
+            // print how many exotics are on the map
+            Log.Message("Number of exotics on the map: " + exotics.Count);
+        }
+
         public override void MapComponentTick()
         {
             base.MapComponentTick();
 
-            // do the exotic tick
+            // do the exotic ticks
             foreach (var exotic in exotics)
             {
                 exotic.ExoticTick();

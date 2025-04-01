@@ -11,8 +11,10 @@ namespace DestinyMod
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
+            // do the base spawn setup
             base.SpawnSetup(map, respawningAfterLoad);
 
+            // do my custom spawn setup
             if (map.GetComponent<MapComponent_ExoticsManager>() is MapComponent_ExoticsManager manager)
             {
                 Log.Message("Spawned EXOTIC -->  " + this.def.defName);
@@ -22,14 +24,18 @@ namespace DestinyMod
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
+            // make sure to include weapons that are equipped on pawns
             if (this.Map == null)
             {
+                // do my custom despawn
                 if (this.Map.GetComponent<MapComponent_ExoticsManager>() is MapComponent_ExoticsManager manager)
                 {
                     Log.Message("Despawned EXOTIC -->  " + this.def.defName);
                     manager.DeregisterExotic(this);
                 }
             }
+
+            // do the base despawn
             base.DeSpawn(mode);
         }
     }
@@ -39,8 +45,6 @@ namespace DestinyMod
     {
         public override void ExoticTick()
         {
-            Log.Message("EXOTIC TICK INCOMING!!!");
-
             if (this.ParentHolder is Pawn_EquipmentTracker equipmentTracker)
             {
                 Pawn pawn = equipmentTracker.pawn;

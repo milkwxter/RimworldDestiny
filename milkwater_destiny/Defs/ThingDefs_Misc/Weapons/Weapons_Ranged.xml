@@ -2,41 +2,8 @@
 
 <Defs>
 
-<!-- Custom Warframe Lasers - Using VanillaWeaponsExpandedLaser -->
-	<ThingDef>
-		<defName>DS_BeamGraphic</defName>
-		<thingClass>VanillaWeaponsExpandedLaser.LaserBeamGraphic</thingClass>
-		<drawOffscreen>true</drawOffscreen>
-		<label>laser beam</label>
-		<category>Projectile</category>
-		<tickerType>Normal</tickerType>
-		<altitudeLayer>MoteOverhead</altitudeLayer>
-		<useHitPoints>False</useHitPoints>
-		<neverMultiSelect>True</neverMultiSelect>
-	</ThingDef>
-
-	<ThingDef Abstract="True" Name="DS_Laser_Generic" ParentName="BaseBullet">
-		<thingClass>DestinyMod.LaserBeamDestiny</thingClass>
-		<drawOffscreen>true</drawOffscreen>
-		<beamGraphic>DS_BeamGraphic</beamGraphic>
-
-		<graphicData>
-			<graphicClass>Graphic_Single</graphicClass>
-			<texPath>Things/Projectile/Charge_Small</texPath>
-			<shaderType>TransparentPostLight</shaderType>
-			<drawSize>1.5</drawSize>
-		</graphicData>
-
-		<projectile>
-			<damageDef>Burn</damageDef>
-			<speed>10000</speed>
-		</projectile>
-
-		<seam>0</seam>
-	</ThingDef>
-
-  <!--===== Riskrunner =====-->
-  <ThingDef ParentName="DS_Laser_Generic" Class="DestinyMod.LaserBeamDestinyDef">
+	<!--===== Riskrunner =====-->
+	<ThingDef ParentName="DS_Laser_Generic" Class="DestinyMod.LaserBeamDestinyDef">
 		<defName>DS_Laser_Riskrunner</defName>
 		<label>riskrunner laser</label>
 		<textures>
@@ -51,86 +18,86 @@
 		</projectile>
 		
 		<hediffToAdd>DS_Arc</hediffToAdd>
-		<hediffChance>0.99</hediffChance>
+		<hediffChance>0.5</hediffChance>
 	</ThingDef>
 	
-  <ThingDef ParentName="BaseHumanMakeableGun">
-    <defName>m_Riskrunner</defName>
-    <label>Riskrunner</label>
-	<thingClass>DestinyMod.ThingExoticRiskrunner</thingClass>
-    <equipmentType>Primary</equipmentType>
-    <description>Charge your soul and let the electrons sing.</description>
-    <graphicData>
-      <texPath>Things/Weapons/m_riskrunner</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>1</drawSize>
-    </graphicData>
-    <equippedAngleOffset>0</equippedAngleOffset>
-    <soundInteract>Interact_ChargeRifle</soundInteract>
-    <recipeMaker>
-      <researchPrerequisite>ChargedShot</researchPrerequisite>
-      <skillRequirements>
-        <Crafting>7</Crafting>
-      </skillRequirements>
-      <recipeUsers Inherit="False">
-        <li>FabricationBench</li>
-      </recipeUsers>
-    </recipeMaker>
-    <statBases>
-      <WorkToMake>15000</WorkToMake>
-      <Mass>2.5</Mass>
-      <AccuracyTouch>0.7</AccuracyTouch>
-      <AccuracyShort>0.65</AccuracyShort>
-      <AccuracyMedium>0.30</AccuracyMedium>
-      <AccuracyLong>0.25</AccuracyLong>
-      <RangedWeapon_Cooldown>1.40</RangedWeapon_Cooldown>
-    </statBases>
-    <costList>
-      <Steel>50</Steel>
-      <ComponentIndustrial>3</ComponentIndustrial>
-    </costList>
-    <verbs>
-      <li>
-        <verbClass>Verb_Shoot</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>DS_Laser_Riskrunner</defaultProjectile>
-        <warmupTime>0.7</warmupTime>
-        <range>25</range>
-        <burstShotCount>4</burstShotCount>
-        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
-        <soundCast>Milkwater_Shot_Riskrunner</soundCast>
-        <soundCastTail>GunTail_Medium</soundCastTail>
-        <muzzleFlashScale>9</muzzleFlashScale>
-      </li>
-    </verbs>
-    <tools>
-      <li>
-        <label>grip</label>
-        <capacities>
-          <li>Blunt</li>
-        </capacities>
-        <power>10</power>
-        <cooldownTime>1.5</cooldownTime>
-      </li>
-      <li>
-        <label>barrel</label>
-        <capacities>
-          <li>Blunt</li>
-          <li>Poke</li>
-        </capacities>
-        <power>9</power>
-        <cooldownTime>1.5</cooldownTime>
-      </li>
-    </tools>
-    <weaponTags>
-      <li>SpacerGun</li>
-    </weaponTags>
-    <tradeTags>
-      <li>ExoticMisc</li>
-    </tradeTags>
-    <weaponClasses>
-      <li>RangedLight</li>
-    </weaponClasses>
-  </ThingDef>
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>m_Riskrunner</defName>
+		<label>Riskrunner</label>
+		<thingClass>DestinyMod.ThingExoticRiskrunner</thingClass>
+		<equipmentType>Primary</equipmentType>
+		<description>Charge your soul and let the electrons sing.</description>
+		<graphicData>
+		  <texPath>Things/Weapons/m_riskrunner</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>1</drawSize>
+		</graphicData>
+		<equippedAngleOffset>0</equippedAngleOffset>
+		<soundInteract>Interact_ChargeRifle</soundInteract>
+		<recipeMaker>
+		  <researchPrerequisite>ChargedShot</researchPrerequisite>
+		  <skillRequirements>
+			<Crafting>7</Crafting>
+		  </skillRequirements>
+		  <recipeUsers Inherit="False">
+			<li>FabricationBench</li>
+		  </recipeUsers>
+		</recipeMaker>
+		<statBases>
+		  <WorkToMake>15000</WorkToMake>
+		  <Mass>2.5</Mass>
+		  <AccuracyTouch>0.7</AccuracyTouch>
+		  <AccuracyShort>0.65</AccuracyShort>
+		  <AccuracyMedium>0.30</AccuracyMedium>
+		  <AccuracyLong>0.25</AccuracyLong>
+		  <RangedWeapon_Cooldown>1.40</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+		  <Steel>50</Steel>
+		  <ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<verbs>
+		  <li>
+			<verbClass>Verb_Shoot</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+			<defaultProjectile>DS_Laser_Riskrunner</defaultProjectile>
+			<warmupTime>0.7</warmupTime>
+			<range>25</range>
+			<burstShotCount>4</burstShotCount>
+			<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+			<soundCast>Milkwater_Shot_Riskrunner</soundCast>
+			<soundCastTail>GunTail_Medium</soundCastTail>
+			<muzzleFlashScale>9</muzzleFlashScale>
+		  </li>
+		</verbs>
+		<tools>
+		  <li>
+			<label>grip</label>
+			<capacities>
+			  <li>Blunt</li>
+			</capacities>
+			<power>10</power>
+			<cooldownTime>1.5</cooldownTime>
+		  </li>
+		  <li>
+			<label>barrel</label>
+			<capacities>
+			  <li>Blunt</li>
+			  <li>Poke</li>
+			</capacities>
+			<power>9</power>
+			<cooldownTime>1.5</cooldownTime>
+		  </li>
+		</tools>
+		<weaponTags>
+		  <li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+		  <li>ExoticMisc</li>
+		</tradeTags>
+		<weaponClasses>
+		  <li>RangedLight</li>
+		</weaponClasses>
+	</ThingDef>
 
 </Defs>

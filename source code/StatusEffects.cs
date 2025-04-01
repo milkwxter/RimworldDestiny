@@ -16,7 +16,8 @@ namespace DestinyMod
         {
             base.Tick();
 
-            if (base.pawn.IsHashIntervalTick(180)) // Check every 180 ticks
+            // every 180 ticks (3 seconds) do the main thing
+            if (base.pawn.IsHashIntervalTick(180))
             {
                 // make sure pawn is still living
                 if (base.pawn.Dead)

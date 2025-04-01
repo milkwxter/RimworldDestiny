@@ -29,7 +29,6 @@ namespace DestinyMod
                     HediffDef hediffDef = def.hediffToAdd;
                     Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
                     pawn.health.AddHediff(hediff);
-                    //Log.Message("Added hediff '" + def.hediffToAdd.defName + "' to pawn named " + pawn.Name);
                 }
             }
 
@@ -51,7 +50,6 @@ namespace DestinyMod
                     HediffDef hediffDef = def.hediffToAdd;
                     Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
                     pawn.health.AddHediff(hediff);
-                    //Log.Message("Added hediff '" + def.hediffToAdd.defName + "' to pawn named " + pawn.Name);
                 }
             }
 
