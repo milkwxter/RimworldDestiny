@@ -17,5 +17,15 @@
 			</li>
 		</stages>
 	</HediffDef>
+	
+	<!-- rat king effect, make gun deal more damage based on stacks -->
+	<HediffDef>
+		<defName>DS_RatKingEffect</defName>
+		<label>rat pack</label>
+		<description>This pawn has found their rat pack. Their weapon is overcharged and will fire powerful shots!</description>
+		<hediffClass>DestinyMod.Hediff_DM_RatKingEffect</hediffClass>
+		<defaultLabelColor>(1, 0.84, 0)</defaultLabelColor>
+		<isBad>False</isBad>
+	</HediffDef>
 
 </Defs>

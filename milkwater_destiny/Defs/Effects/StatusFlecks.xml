@@ -2,6 +2,18 @@
 <Defs>
 
 	<FleckDef ParentName="FleckBase">
+		<defName>DS_Kinetic_Fleck</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>0.30</solidTime>
+		<fadeOutTime>0.30</fadeOutTime>
+		<graphicData>
+			<texPath>Things/Effects/kinetic_fleck</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>0.5</drawSize>
+		</graphicData>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase">
 		<defName>DS_Arc_Fleck</defName>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<solidTime>0.30</solidTime>

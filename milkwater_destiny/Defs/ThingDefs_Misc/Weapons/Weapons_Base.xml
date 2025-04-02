@@ -2,7 +2,21 @@
 
 <Defs>
 
-<!-- Custom Warframe Lasers - Using VanillaWeaponsExpandedLaser -->
+<!-- Custom Destiny Bullet -->
+<ThingDef Name="DS_Bullet_Generic" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>DestinyMod.ProjectileDestiny</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>
+
+<!-- Custom Destiny Lasers - Using VanillaWeaponsExpandedLaser -->
 	<ThingDef>
 		<defName>DS_BeamGraphic</defName>
 		<thingClass>VanillaWeaponsExpandedLaser.LaserBeamGraphic</thingClass>

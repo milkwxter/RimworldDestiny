@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+<!-- kinetic damage -->
+<HediffDef>
+		<defName>DS_Kinetic</defName>
+		<label>kinetic proc</label>
+		<description>This pawn is been hit by a kinetically charged shot. Their reflexes are dulled as the energy sends shocks through their body.</description>
+		<hediffClass>DestinyMod.Hediff_DM_Kinetic</hediffClass>
+		<defaultLabelColor>(1, 1, 1)</defaultLabelColor>
+		<isBad>True</isBad>
+		<comps>
+		  <li Class="HediffCompProperties_Disappears">
+			<showRemainingTime>True</showRemainingTime>
+			<disappearsAfterTicks>900</disappearsAfterTicks>
+		  </li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<MeleeCooldownFactor>2.0</MeleeCooldownFactor>
+					<RangedCooldownFactor>2.0</RangedCooldownFactor>
+				</statOffsets>
+			</li>
+        </stages>
+</HediffDef>
+
 <!-- arc damage -->
 <!-- bonus damage to shields, stuns pawns, can chain zap nearby pawns -->
 <HediffDef>

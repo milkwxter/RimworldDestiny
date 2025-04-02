@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System.Collections.Generic;
 using VanillaWeaponsExpandedLaser;
 using Verse;
 
@@ -66,4 +67,52 @@ namespace DestinyMod
     }
 
     // RAT KING!!!!!!!!!!!!
+    public class ThingExoticRatKing : ThingWithExoticBehavior
+    {
+        public override void ExoticTick()
+        {
+            if (this.ParentHolder is Pawn_EquipmentTracker equipmentTracker)
+            {
+                // my variables
+                Pawn pawn = equipmentTracker.pawn;
+                HediffDef hediffRatKing = HediffDef.Named("DS_RatKingEffect");
+                int nearbyRatKingUsers = 0;
+
+                // clear previous rat king hediffs
+                pawn.health.hediffSet.hediffs.RemoveAll(hediff => hediff.def == hediffRatKing);
+
+                // get nearby pawns that are also holding rat king
+                foreach (IntVec3 cell in GenRadial.RadialCellsAround(pawn.Position, 5f, true))
+                {
+                    if (!cell.InBounds(pawn.Map)) continue;
+                    List<Thing> things = cell.GetThingList(pawn.Map);
+                    foreach (Thing thing in things)
+                    {
+                        if (thing is Pawn potentialRat && potentialRat.def.race.Humanlike)
+                        {
+                            // skip guys who arent holding the rat weapon
+                            if (!(potentialRat.equipment.Primary is ThingExoticRatKing))
+                            {
+                                Log.Message("Skipping potential rat.");
+                                continue;
+                            }
+
+
+                            // increment the numbar
+                            Log.Message("Potential rat acquired.");
+                            nearbyRatKingUsers++;
+                        }
+                    }
+                }
+
+                // depending on how many rats are there are do stuff
+                Log.Message("We found this many rats! --> " + nearbyRatKingUsers);
+                for (int i = 0; i < nearbyRatKingUsers; i++)
+                {
+                    Hediff hediff = HediffMaker.MakeHediff(hediffRatKing, pawn);
+                    pawn.health.AddHediff(hediff);
+                }
+            }
+        }
+    }
 }

@@ -77,4 +77,37 @@ namespace DestinyMod
             FleckMaker.AttachedOverlay(base.pawn, DefDatabase<FleckDef>.GetNamed("DS_Arc_Fleck"), new Vector3(0f, 0f, 0f));
         }
     }
+
+    public class Hediff_DM_Kinetic : HediffWithComps
+    {
+        public override void Tick()
+        {
+            base.Tick();
+
+            // every 180 ticks (3 seconds) do the main thing
+            if (base.pawn.IsHashIntervalTick(180))
+            {
+                // make sure pawn is still living
+                if (base.pawn.Dead)
+                {
+                    base.pawn.health.RemoveHediff(this);
+                    return;
+                }
+
+                // do a fleck
+                FleckMaker.AttachedOverlay(base.pawn, DefDatabase<FleckDef>.GetNamed("DS_Kinetic_Fleck"), new Vector3(0f, 0f, 0f));
+            }
+        }
+
+        public override void PostAdd(DamageInfo? dinfo)
+        {
+            base.PostAdd(dinfo);
+
+            // Throw a mote
+            MoteMaker.ThrowText(base.pawn.DrawPos, base.pawn.Map, "Kinetic proc", Color.white, 3f);
+
+            // do a fleck
+            FleckMaker.AttachedOverlay(base.pawn, DefDatabase<FleckDef>.GetNamed("DS_Kinetic_Fleck"), new Vector3(0f, 0f, 0f));
+        }
+    }
 }

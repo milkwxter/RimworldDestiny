@@ -71,4 +71,28 @@ namespace DestinyMod
             base.Impact(hitThing, blockedByShield);
         }
     }
+
+    public class BulletRatKing : ProjectileDestiny
+    {
+        private new ProjectileDestinyDef def => base.def as ProjectileDestinyDef;
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
+            // make sure launcher pawn has the hediff
+            if (CodeHelpers.PawnHasHediff(this.launcher as Pawn, "DS_RatKingEffect"))
+            {
+                // important variables
+                Pawn ratKingOwner = this.launcher as Pawn;
+                HediffDef hediffRatKing = HediffDef.Named("DS_RatKingEffect");
+
+                // get size of rat pack
+                int ratPackSize = ratKingOwner.health.hediffSet.hediffs.Count(hediff => hediff.def == hediffRatKing);
+
+                // increase the damage
+                this.weaponDamageMultiplier += (0.1f * ratPackSize);
+            }
+
+            // default behavior
+            base.Impact(hitThing, blockedByShield);
+        }
+    }
 }
