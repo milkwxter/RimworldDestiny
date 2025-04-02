@@ -78,9 +78,6 @@ namespace DestinyMod
                 HediffDef hediffRatKing = HediffDef.Named("DS_RatKingEffect");
                 int nearbyRatKingUsers = 0;
 
-                // clear previous rat king hediffs
-                pawn.health.hediffSet.hediffs.RemoveAll(hediff => hediff.def == hediffRatKing);
-
                 // get nearby pawns that are also holding rat king
                 foreach (IntVec3 cell in GenRadial.RadialCellsAround(pawn.Position, 5f, true))
                 {
@@ -91,11 +88,10 @@ namespace DestinyMod
                         if (thing is Pawn potentialRat && potentialRat.def.race.Humanlike)
                         {
                             // skip guys who arent holding the rat weapon
-                            if (!(potentialRat.equipment.Primary is ThingExoticRatKing))
-                            {
-                                Log.Message("Skipping potential rat.");
-                                continue;
-                            }
+                            if (!(potentialRat.equipment.Primary is ThingExoticRatKing)) continue;
+
+                            // skip our selves
+                            if (potentialRat == pawn) continue;
 
 
                             // increment the numbar
@@ -105,13 +101,19 @@ namespace DestinyMod
                     }
                 }
 
+                // clean up the old hediff
+                Hediff hediffPrevious = pawn.health.hediffSet.GetFirstHediffOfDef(hediffRatKing);
+                pawn.health.hediffSet.hediffs.Remove(hediffPrevious);
+
                 // depending on how many rats are there are do stuff
                 Log.Message("We found this many rats! --> " + nearbyRatKingUsers);
-                for (int i = 0; i < nearbyRatKingUsers; i++)
-                {
-                    Hediff hediff = HediffMaker.MakeHediff(hediffRatKing, pawn);
-                    pawn.health.AddHediff(hediff);
-                }
+                if (nearbyRatKingUsers <= 0) return;
+
+                // do the new hediff
+                Hediff hediff = HediffMaker.MakeHediff(hediffRatKing, pawn);
+                Hediff_DM_RatKingEffect ratHediff = hediff as Hediff_DM_RatKingEffect;
+                pawn.health.AddHediff(ratHediff);
+                ratHediff.nearbyRats = nearbyRatKingUsers;
             }
         }
     }

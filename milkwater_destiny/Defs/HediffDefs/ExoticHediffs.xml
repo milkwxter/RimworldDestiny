@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- riskrunner effect, make gun fire fast -->
+	<!-- riskrunner effect, make gun fire fast and chain lightning -->
 	<HediffDef>
 		<defName>DS_RiskrunnerEffect</defName>
 		<label>arc supercharger</label>
-		<description>This pawn is crackling with potent arc energy. Their weapon is overcharged and will fire incredibly fast!</description>
+		<description>This pawn is crackling with potent arc energy. Their weapon is overcharged and will fire faster alongside chain lightning on hit!</description>
 		<hediffClass>DestinyMod.Hediff_DM_RiskrunnerEffect</hediffClass>
 		<defaultLabelColor>(0, 1, 1)</defaultLabelColor>
 		<isBad>False</isBad>
@@ -22,7 +22,7 @@
 	<HediffDef>
 		<defName>DS_RatKingEffect</defName>
 		<label>rat pack</label>
-		<description>This pawn has found their rat pack. Their weapon is overcharged and will fire powerful shots!</description>
+		<description>This pawn has found their rat pack. Their weapon is overcharged and will fire powerful shots!\n\nRanged damage is multiplied by (1.1 * x), where "x" is the amount of stacks on this hediff.</description>
 		<hediffClass>DestinyMod.Hediff_DM_RatKingEffect</hediffClass>
 		<defaultLabelColor>(1, 0.84, 0)</defaultLabelColor>
 		<isBad>False</isBad>

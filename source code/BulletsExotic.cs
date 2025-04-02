@@ -82,10 +82,11 @@ namespace DestinyMod
             {
                 // important variables
                 Pawn ratKingOwner = this.launcher as Pawn;
-                HediffDef hediffRatKing = HediffDef.Named("DS_RatKingEffect");
+                HediffDef hediffDefRatKing = HediffDef.Named("DS_RatKingEffect");
+                Hediff hediffRatKing = ratKingOwner.health.hediffSet.GetFirstHediffOfDef(hediffDefRatKing);
 
                 // get size of rat pack
-                int ratPackSize = ratKingOwner.health.hediffSet.hediffs.Count(hediff => hediff.def == hediffRatKing);
+                int ratPackSize = (hediffRatKing as Hediff_DM_RatKingEffect).nearbyRats;
 
                 // increase the damage
                 this.weaponDamageMultiplier += (0.1f * ratPackSize);

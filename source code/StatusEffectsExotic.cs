@@ -29,15 +29,23 @@ namespace DestinyMod
 
     public class Hediff_DM_RatKingEffect : HediffWithComps
     {
+        public int nearbyRats;
         public override string LabelInBrackets
         {
             get
             {
-                int stackCount = pawn.health.hediffSet.hediffs.Count(h => h.def == this.def);
-                // show count if its above 1
-                return stackCount > 1 ? $"x{stackCount}" : null;
+                return $"x{this.nearbyRats} stacks";
             }
         }
+
+        public override void PostAdd(DamageInfo? dinfo)
+        {
+            base.PostAdd(dinfo);
+
+            // initialize variable
+            this.nearbyRats = 0;
+        }
+
         public override void Tick()
         {
             base.Tick();
@@ -48,9 +56,10 @@ namespace DestinyMod
                 HediffDef hediffRatKing = HediffDef.Named("DS_RatKingEffect");
 
                 // if the rat king is unequipped
-                if (!(pawn.equipment.Primary is ThingExoticRatKing))
+                if (!(pawn.equipment.Primary is ThingExoticRatKing) || nearbyRats == 0)
                 {
-                    // remove the hediff and the damage multiplier
+                    // remove the hediff and reset our counter
+                    nearbyRats = 0;
                     pawn.health.hediffSet.hediffs.RemoveAll(hediff => hediff.def == hediffRatKing);
                 }
             }
