@@ -113,13 +113,13 @@
 		<projectile>
 			<damageDef>Bullet</damageDef>
 			<damageAmountBase>11</damageAmountBase>
-			<armorPenetrationBase>0.60</armorPenetrationBase>
+			<armorPenetrationBase>0.40</armorPenetrationBase>
 			<stoppingPower>0.1</stoppingPower>
 			<speed>70</speed>
 		</projectile>
 		
 		<hediffToAdd>DS_Kinetic</hediffToAdd>
-		<hediffChance>0.5</hediffChance>
+		<hediffChance>0.4</hediffChance>
 	</ThingDef>
 	
 	<ThingDef ParentName="BaseHumanMakeableGun">
@@ -167,6 +167,106 @@
 			<burstShotCount>2</burstShotCount>
 			<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
 			<soundCast>Milkwater_Shot_RatKing</soundCast>
+			<soundCastTail>GunTail_Light</soundCastTail>
+			<muzzleFlashScale>9</muzzleFlashScale>
+		  </li>
+		</verbs>
+		<tools>
+		  <li>
+			<label>grip</label>
+			<capacities>
+			  <li>Blunt</li>
+			</capacities>
+			<power>10</power>
+			<cooldownTime>1.5</cooldownTime>
+		  </li>
+		  <li>
+			<label>barrel</label>
+			<capacities>
+			  <li>Blunt</li>
+			  <li>Poke</li>
+			</capacities>
+			<power>9</power>
+			<cooldownTime>1.5</cooldownTime>
+		  </li>
+		</tools>
+		<weaponTags>
+		  <li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+		  <li>ExoticMisc</li>
+		</tradeTags>
+		<weaponClasses>
+		  <li>RangedLight</li>
+		</weaponClasses>
+	</ThingDef>
+	
+	<!--===== Polaris lance =====-->
+	<ThingDef ParentName="DS_Bullet_Generic" Class="DestinyMod.ProjectileDestinyDef">
+		<defName>DS_Bullet_PolarisLance</defName>
+		<label>polaris lance bullet</label>
+		<thingClass>DestinyMod.BulletPolarisLance</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>19</damageAmountBase>
+			<armorPenetrationBase>0.75</armorPenetrationBase>
+			<stoppingPower>0.3</stoppingPower>
+			<speed>70</speed>
+		</projectile>
+		
+		<hediffToAdd>DS_Solar</hediffToAdd>
+		<hediffChance>0.5</hediffChance>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>m_PolarisLance</defName>
+		<label>polaris lance</label>
+		<thingClass>DestinyMod.ThingExoticPolarisLance</thingClass>
+		<equipmentType>Primary</equipmentType>
+		<description>I've forgotten so much of my past life, of my family. But when I hold this rifle, everything feels right. I feel like... I'm home.</description>
+		<graphicData>
+		  <texPath>Things/Weapons/m_polaris_lance</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>1.3</drawSize>
+		</graphicData>
+		<equippedAngleOffset>0</equippedAngleOffset>
+		<soundInteract>Interact_ChargeRifle</soundInteract>
+		<recipeMaker>
+		  <researchPrerequisite>ChargedShot</researchPrerequisite>
+		  <skillRequirements>
+			<Crafting>7</Crafting>
+		  </skillRequirements>
+		  <recipeUsers Inherit="False">
+			<li>FabricationBench</li>
+		  </recipeUsers>
+		</recipeMaker>
+		<statBases>
+		  <WorkToMake>15000</WorkToMake>
+		  <Mass>2.5</Mass>
+		  <AccuracyTouch>0.8</AccuracyTouch>
+		  <AccuracyShort>0.7</AccuracyShort>
+		  <AccuracyMedium>0.65</AccuracyMedium>
+		  <AccuracyLong>0.6</AccuracyLong>
+		  <RangedWeapon_Cooldown>1.60</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+		  <Steel>50</Steel>
+		  <ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<verbs>
+		  <li>
+			<verbClass>Verb_Shoot</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+			<defaultProjectile>DS_Bullet_PolarisLance</defaultProjectile>
+			<warmupTime>0.5</warmupTime>
+			<range>30</range>
+			<burstShotCount>1</burstShotCount>
+			<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+			<soundCast>Milkwater_Shot_PolarisLance</soundCast>
 			<soundCastTail>GunTail_Light</soundCastTail>
 			<muzzleFlashScale>9</muzzleFlashScale>
 		  </li>

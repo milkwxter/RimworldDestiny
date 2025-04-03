@@ -24,5 +24,17 @@
 			<drawSize>0.5</drawSize>
 		</graphicData>
 	</FleckDef>
+	
+	<FleckDef ParentName="FleckBase">
+		<defName>DS_Solar_Fleck</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>0.30</solidTime>
+		<fadeOutTime>0.30</fadeOutTime>
+		<graphicData>
+			<texPath>Things/Effects/solar_fleck</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>0.5</drawSize>
+		</graphicData>
+	</FleckDef>
   
 </Defs>

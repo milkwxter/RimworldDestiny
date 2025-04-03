@@ -2,6 +2,7 @@
 <Defs>
 
 <!-- kinetic damage -->
+<!-- increased cooldowns -->
 <HediffDef>
 		<defName>DS_Kinetic</defName>
 		<label>kinetic proc</label>
@@ -26,7 +27,7 @@
 </HediffDef>
 
 <!-- arc damage -->
-<!-- bonus damage to shields, stuns pawns, can chain zap nearby pawns -->
+<!-- reduced movement and can chain zap nearby pawns -->
 <HediffDef>
 		<defName>DS_Arc</defName>
 		<label>arc proc</label>
@@ -45,6 +46,33 @@
             <capMods>
                 <li>
                     <capacity>Moving</capacity>
+                    <offset>-0.2</offset>
+                </li>
+            </capMods>
+        </li>
+		</stages>
+</HediffDef>
+
+<!-- solar damage -->
+<!-- reduced consciousness and lights him on fire. at the end theres a solar explosion -->
+<HediffDef>
+		<defName>DS_Solar</defName>
+		<label>solar proc</label>
+		<description>This pawn is aflame with potent solar energy. They will suffer reduced consciousness as their body melts, and they may explode once the proc wears off.</description>
+		<hediffClass>DestinyMod.Hediff_DM_Solar</hediffClass>
+		<defaultLabelColor>(1, 0.5, 0)</defaultLabelColor>
+		<isBad>True</isBad>
+		<comps>
+		  <li Class="HediffCompProperties_Disappears">
+			<showRemainingTime>True</showRemainingTime>
+			<disappearsAfterTicks>900</disappearsAfterTicks>
+		  </li>
+		</comps>
+		<stages>
+		<li>
+            <capMods>
+                <li>
+                    <capacity>Consciousness</capacity>
                     <offset>-0.2</offset>
                 </li>
             </capMods>

@@ -93,9 +93,7 @@ namespace DestinyMod
                             // skip our selves
                             if (potentialRat == pawn) continue;
 
-
                             // increment the numbar
-                            Log.Message("Potential rat acquired.");
                             nearbyRatKingUsers++;
                         }
                     }
@@ -106,7 +104,6 @@ namespace DestinyMod
                 pawn.health.hediffSet.hediffs.Remove(hediffPrevious);
 
                 // depending on how many rats are there are do stuff
-                Log.Message("We found this many rats! --> " + nearbyRatKingUsers);
                 if (nearbyRatKingUsers <= 0) return;
 
                 // do the new hediff
@@ -114,6 +111,19 @@ namespace DestinyMod
                 Hediff_DM_RatKingEffect ratHediff = hediff as Hediff_DM_RatKingEffect;
                 pawn.health.AddHediff(ratHediff);
                 ratHediff.nearbyRats = nearbyRatKingUsers;
+            }
+        }
+    }
+
+    // POLARIS LANCE!!!!!!!!!
+    public class ThingExoticPolarisLance : ThingWithExoticBehavior
+    {
+        public override void ExoticTick()
+        {
+            if (this.ParentHolder is Pawn_EquipmentTracker equipmentTracker)
+            {
+                // we dont really need to tick for this one
+                return;
             }
         }
     }

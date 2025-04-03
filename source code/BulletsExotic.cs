@@ -96,4 +96,54 @@ namespace DestinyMod
             base.Impact(hitThing, blockedByShield);
         }
     }
+
+    public class BulletPolarisLance : ProjectileDestiny
+    {
+        private new ProjectileDestinyDef def => base.def as ProjectileDestinyDef;
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
+            // if we hit a glorious pawn
+            if (hitThing is Pawn)
+            {
+                // save vars
+                HediffDef hediffDefPolarisLance = HediffDef.Named("DS_PolarisLanceEffect");
+                Pawn polarisLanceOwner = this.launcher as Pawn;
+
+                // if we already have a stack
+                if (CodeHelpers.PawnHasHediff(this.launcher as Pawn, "DS_PolarisLanceEffect"))
+                {
+                    // get the hediff
+                    Hediff hediff = polarisLanceOwner.health.hediffSet.GetFirstHediffOfDef(hediffDefPolarisLance);
+                    Hediff_DM_PolarisLanceEffect polarisHediff = hediff as Hediff_DM_PolarisLanceEffect;
+
+                    // see if the explosive shot is ready
+                    if (polarisHediff.perfectShots >= 4)
+                    {
+                        // reset counter
+                        polarisHediff.perfectShots = 0;
+
+                        // do an explosion
+                        GenExplosion.DoExplosion(hitThing.Position, hitThing.Map, 3.5f, DamageDefOf.Bomb, polarisLanceOwner, 25);
+                    }
+
+                    // if not add a stack to the hediff
+                    else
+                    {
+                        polarisHediff.perfectShots++;
+                    }
+                }
+                else
+                {
+                    // do the new hediff
+                    Hediff hediff = HediffMaker.MakeHediff(hediffDefPolarisLance, polarisLanceOwner);
+                    Hediff_DM_PolarisLanceEffect polarisHediff = hediff as Hediff_DM_PolarisLanceEffect;
+                    polarisLanceOwner.health.AddHediff(polarisHediff);
+                    polarisHediff.perfectShots = 1;
+                }
+            }
+
+            // default behavior
+            base.Impact(hitThing, blockedByShield);
+        }
+    }
 }

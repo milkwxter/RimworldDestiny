@@ -27,5 +27,15 @@
 		<defaultLabelColor>(1, 0.84, 0)</defaultLabelColor>
 		<isBad>False</isBad>
 	</HediffDef>
+	
+	<!-- polaris lance effect, gun fires a explosive shot after 4 pawn hits -->
+	<HediffDef>
+		<defName>DS_PolarisLanceEffect</defName>
+		<label>the perfect fifth</label>
+		<description>This pawn has hit a shot with the exotic polaris lance weapon. At 4 stacks, it will load an explosive round!</description>
+		<hediffClass>DestinyMod.Hediff_DM_PolarisLanceEffect</hediffClass>
+		<defaultLabelColor>(1, 0.5, 0)</defaultLabelColor>
+		<isBad>False</isBad>
+	</HediffDef>
 
 </Defs>

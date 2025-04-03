@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FleckDef ParentName="FleckBase">
+		<defName>DS_SolarFlame_Fleck</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>0.30</solidTime>
+		<fadeOutTime>0.30</fadeOutTime>
+		<graphicData>
+			<texPath>Things/Effects/flame</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>0.5</drawSize>
+		</graphicData>
+	</FleckDef>
+  
+</Defs>
