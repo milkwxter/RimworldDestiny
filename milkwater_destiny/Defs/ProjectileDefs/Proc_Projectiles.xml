@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Destiny_Projectile_Fireball</defName>
+		<label>solar fireball</label>
+		<graphicData>
+			<texPath>Things/Projectile/Shot_SolarFireball</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<speed>30</speed>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<explosionRadius>1</explosionRadius>
+			<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+			<preExplosionSpawnChance>1</preExplosionSpawnChance>
+		</projectile>
+	</ThingDef>
+	
+</Defs>

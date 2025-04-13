@@ -4,12 +4,24 @@
 	<FleckDef ParentName="FleckBase">
 		<defName>DS_SolarFlame_Fleck</defName>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
-		<solidTime>0.30</solidTime>
+		<solidTime>0.50</solidTime>
 		<fadeOutTime>0.30</fadeOutTime>
 		<graphicData>
-			<texPath>Things/Effects/flame</texPath>
+			<texPath>Things/Effects/solarExplosion/flame</texPath>
 			<shaderType>MoteGlow</shaderType>
-			<drawSize>0.5</drawSize>
+			<drawSize>0.6</drawSize>
+		</graphicData>
+	</FleckDef>
+	
+	<FleckDef ParentName="FleckBase">
+		<defName>DS_SolarBoom_Fleck</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>0.30</solidTime>
+		<fadeOutTime>0.50</fadeOutTime>
+		<graphicData>
+			<texPath>Things/Effects/solarExplosion/explosion</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>5</drawSize>
 		</graphicData>
 	</FleckDef>
   

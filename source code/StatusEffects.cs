@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Verse.Sound;
 using VanillaWeaponsExpandedLaser;
 using static UnityEngine.UI.Image;
+using UnityEngine.Networking.Types;
 
 namespace DestinyMod
 {
@@ -129,6 +130,35 @@ namespace DestinyMod
 
                 // do a fleck
                 FleckMaker.AttachedOverlay(base.pawn, DefDatabase<FleckDef>.GetNamed("DS_Solar_Fleck"), new Vector3(0f, 0f, 0f));
+
+                // pawn fires a explosive fireball at nearest pawn
+                foreach (IntVec3 cell in GenRadial.RadialCellsAround(base.pawn.Position, 5f, true))
+                {
+                    if (!cell.InBounds(base.pawn.Map)) continue;
+                    List<Thing> things = cell.GetThingList(base.pawn.Map);
+                    foreach (Thing thing in things)
+                    {
+                        if (thing is Pawn fireballee)
+                        {
+                            // super sick early return
+                            if (fireballee.Faction == null || fireballee.Faction != base.pawn.Faction || fireballee == base.pawn)
+                            {
+                                continue;
+                            }
+
+                            // shoot a fireball from pawn to fireballee
+                            ThingDef fireballDef = ThingDef.Named("Destiny_Projectile_Fireball");
+                            Projectile projectile = (Projectile)GenSpawn.Spawn(fireballDef, base.pawn.Position, base.pawn.Map);
+                            projectile.Launch(base.pawn, fireballee.Position, fireballee, ProjectileHitFlags.IntendedTarget);
+
+                            // special sound
+                            DefDatabase<SoundDef>.GetNamed("DS_SolarThrow").PlayOneShot(new TargetInfo(base.pawn.Position, base.pawn.Map, false));
+
+                            // stop after throwing a fireball ONCE cus it hurts a lot
+                            return;
+                        }
+                    }
+                }
             }
         }
 
@@ -143,49 +173,68 @@ namespace DestinyMod
             FleckMaker.AttachedOverlay(base.pawn, DefDatabase<FleckDef>.GetNamed("DS_Solar_Fleck"), new Vector3(0f, 0f, 0f));
 
             // pawn lights on fire
-            FireUtility.TryStartFireIn(base.pawn.Position, base.pawn.Map, 0.5f, null);
+            IntVec3 cell = base.pawn.Position;
+            FireUtility.TryStartFireIn(cell, base.pawn.Map, 5f, base.pawn);
         }
 
         public override void PostRemoved()
         {
             base.PostRemoved();
 
-            // when hediff expires
-            if (base.pawn != null && base.pawn.Map != null)
+            // check if the pawn and its map are valid
+            if (base.pawn == null || base.pawn.Map == null || base.pawn.Dead)
             {
-                // create variables
-                DamageInfo burnt = new DamageInfo(DamageDefOf.Burn, 10f, 1f, -1f, base.pawn);
+                return;
+            }
 
-                // epic loop
-                foreach (IntVec3 cell in GenRadial.RadialCellsAround(base.pawn.Position, 2f, true))
+            // create variables for damage
+            DamageInfo burnt = new DamageInfo(DamageDefOf.Burn, 25f, 1f, -1f, base.pawn);
+            List<Pawn> pawnsToBurn = new List<Pawn>();
+
+            // do some effects
+            FleckMaker.Static(base.pawn.Position, base.pawn.Map, FleckDefOf.PsycastAreaEffect);
+            FleckMaker.Static(base.pawn.Position, base.pawn.Map, DefDatabase<FleckDef>.GetNamed("DS_SolarBoom_Fleck"));
+            DefDatabase<SoundDef>.GetNamed("DS_SolarBoom").PlayOneShot(new TargetInfo(base.pawn.Position, base.pawn.Map, false));
+            Find.CameraDriver.shaker.DoShake(10f);
+
+            // save position in case pawn dies from the explosion
+            IEnumerable<IntVec3> cachedRadialCells = GenRadial.RadialCellsAround(base.pawn.Position, 3f, true);
+
+            // epic loop
+            foreach (IntVec3 cell in cachedRadialCells)
+            {
+                // check if the cell is within bounds
+                if (!cell.InBounds(base.pawn.Map)) continue;
+
+                // cool effect
+                FleckMaker.Static(cell, base.pawn.Map, DefDatabase<FleckDef>.GetNamed("DS_SolarFlame_Fleck"));
+
+                // try to spawn a fire
+                if (Rand.Chance(0.5f))
                 {
-                    // stay in bounds
-                    if (!cell.InBounds(base.pawn.Map)) continue;
+                    FireUtility.TryStartFireIn(cell, base.pawn.Map, 5f, base.pawn);
+                }
 
-                    // cool effect
-                    FleckMaker.Static(cell, base.pawn.Map, DefDatabase<FleckDef>.GetNamed("DS_SolarFlame_Fleck"));
-
-                    // try to spawn a fire
-                    if (Rand.Chance(30))
-                        FireUtility.TryStartFireIn(cell, base.pawn.Map, 5f, base.pawn);
-
-                    // epic loop
-                    Thing[] array = cell.GetThingList(base.pawn.Map).ToArray();
-                    foreach (Thing thing in array)
+                // epic loop for things in the cell
+                Thing[] array = cell.GetThingList(base.pawn.Map).ToArray();
+                foreach (Thing thing in array)
+                {
+                    // perform action only for pawns
+                    if (thing is Pawn pawn)
                     {
-                        // make sure we do stuff to pawns only
-                        if (thing.GetType() != typeof(Pawn)) continue;
+                        // make sure we only target pawns of the same faction
+                        if (pawn.Faction != null && pawn.Faction.HostileTo(base.pawn.Faction)) continue;
 
-                        // make sure we only do stuff to people of the same faction
-                        Pawn pawn = thing as Pawn;
-                        if (pawn == base.pawn) continue;
-                        if (pawn.Faction != null && !pawn.Faction.HostileTo(base.pawn.Faction)) continue;
-
-                        // deal two instances of damage
-                        pawn.TakeDamage(burnt);
-                        pawn.TakeDamage(burnt);
+                        // add them to the zap list
+                        pawnsToBurn.Add(pawn);
                     }
                 }
+            }
+
+            // burning time
+            foreach (Pawn pawnToBurn in pawnsToBurn)
+            {
+                pawnToBurn.TakeDamage(burnt);
             }
         }
     }
