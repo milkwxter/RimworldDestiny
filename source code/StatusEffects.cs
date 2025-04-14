@@ -225,7 +225,7 @@ namespace DestinyMod
                         // make sure we only target pawns of the same faction
                         if (pawn.Faction != null && pawn.Faction.HostileTo(base.pawn.Faction)) continue;
 
-                        // add them to the zap list
+                        // add them to the burn list
                         pawnsToBurn.Add(pawn);
                     }
                 }
