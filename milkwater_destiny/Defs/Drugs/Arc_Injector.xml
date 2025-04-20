@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MakeableDrugBase">
+    <defName>m_Arc_Injector</defName>
+    <label>arc injector</label>
+    <description>Arc injectors are a mysterious and volatile substance engineered to fill the user with arc energy. Upon consumption, the user's reflexes and movements are severely slowed, as if under an immense burden of energy. However, this dormant energy occasionally erupts in destructive arcs, zapping nearby pawns with bursts of concentrated electricity.\n\nThe arc injector is designed to be used alongside the Riskrunner exotic weapon, since the weapon supercharges when the wielder is inflicted with an arc proc.</description>
+	<descriptionHyperlinks>
+      <HediffDef>DS_Arc</HediffDef>
+    </descriptionHyperlinks>
+    <tradeability>Sellable</tradeability>
+    <graphicData>
+      <texPath>Things/Items/m_arc_injector</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>700</WorkToMake>
+      <MarketValue>50</MarketValue>
+      <Mass>0.04</Mass>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <minRewardCount>1</minRewardCount>
+    <ingestible>
+	  <foodType>Processed</foodType>
+      <baseIngestTicks>20</baseIngestTicks>
+      <ingestSound>DS_Zap</ingestSound>
+      <drugCategory>Any</drugCategory>
+      <ingestCommandString>Inject {0}</ingestCommandString>
+      <ingestReportString>Injecting {0}.</ingestReportString>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DS_Arc</hediffDef>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+	<recipeMaker>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <workSpeedStat>DrugCookingSpeed</workSpeedStat>
+      <workSkill>Cooking</workSkill>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>1</Neutroamine>
+	  <Steel>10</Steel>
+    </costList>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <thingSetMakerTags><li>RewardStandardCore</li></thingSetMakerTags>
+	<comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1100</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+  
+</Defs>

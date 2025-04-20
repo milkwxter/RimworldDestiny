@@ -2,6 +2,18 @@
 <Defs>
 
 	<FleckDef ParentName="FleckBase">
+		<defName>DS_ExoticDecrypt_Fleck</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>0.10</solidTime>
+		<fadeOutTime>2.0</fadeOutTime>
+		<graphicData>
+			<texPath>Things/Effects/decryption/exotic_beam</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.0</drawSize>
+		</graphicData>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase">
 		<defName>DS_SolarFlame_Fleck</defName>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<solidTime>0.50</solidTime>

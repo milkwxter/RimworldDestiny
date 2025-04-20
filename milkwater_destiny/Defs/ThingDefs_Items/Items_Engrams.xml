@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- exotic friendly engram here -->
+	<ThingDef ParentName="ResourceBase">
+		<thingClass>ThingWithComps</thingClass>
+		<defName>DS_EngramExotic</defName>
+		<label>exotic engram</label>
+		<description>A glowing golden engram. Whoever decrypts it will reveal a powerful weapon.</description>
+		<graphicData>
+			<texPath>Things/Items/m_engram_exotic</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<stackLimit>1</stackLimit>
+		<useHitPoints>true</useHitPoints>
+		<statBases>
+			<MarketValue>2500</MarketValue>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Mass>1</Mass>
+			<Flammability>0.0</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>ItemsMisc</li>
+		</thingCategories>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<tradeability>Sellable</tradeability>
+		<techLevel>Ultra</techLevel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<useJob>UseItem</useJob>
+				<useLabel>Decrypt {0_label}</useLabel>
+				<useDuration>600</useDuration>
+				<showUseGizmo>true</showUseGizmo>
+			</li>
+			<li Class="CompProperties_UseEffect">
+				<compClass>DestinyMod.CompUseEffect_DecryptEngram</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>

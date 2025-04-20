@@ -2,6 +2,27 @@
 
 <Defs>
 
+<!-- Custom Destiny Gun -->
+<ThingDef Name="BaseGunDestiny" Abstract="True" ParentName="BaseGunWithQuality">
+	<relicChance>3</relicChance>
+	<techLevel>Spacer</techLevel>
+    <smeltable>false</smeltable>
+	<weaponTags>
+		<li>Gun</li>
+		<li>SpacerGun</li>
+		<li>DestinyExotic</li>
+    </weaponTags>
+    <tradeTags>
+		<li>ExoticMisc</li>
+    </tradeTags>
+    <comps>
+		<li Class="CompProperties_Biocodable"/>
+    </comps>
+	<statBases>
+		<MarketValue>2000</MarketValue>
+    </statBases>
+</ThingDef>
+
 <!-- Custom Destiny Bullet -->
 <ThingDef Name="DS_Bullet_Generic" Abstract="True">
     <category>Projectile</category>

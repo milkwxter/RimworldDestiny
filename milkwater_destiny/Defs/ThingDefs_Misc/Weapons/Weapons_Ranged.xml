@@ -22,10 +22,13 @@
 		<hediffChance>0.5</hediffChance>
 	</ThingDef>
 	
-	<ThingDef ParentName="BaseHumanMakeableGun">
+	<ThingDef ParentName="BaseGunDestiny">
 		<defName>m_Riskrunner</defName>
 		<label>riskrunner</label>
 		<thingClass>DestinyMod.ThingExoticRiskrunner</thingClass>
+		<descriptionHyperlinks>
+		  <HediffDef>DS_RiskrunnerEffect</HediffDef>
+		</descriptionHyperlinks>
 		<equipmentType>Primary</equipmentType>
 		<description>Charge your soul and let the electrons sing.</description>
 		<graphicData>
@@ -35,17 +38,7 @@
 		</graphicData>
 		<equippedAngleOffset>0</equippedAngleOffset>
 		<soundInteract>Interact_ChargeRifle</soundInteract>
-		<recipeMaker>
-		  <researchPrerequisite>ChargedShot</researchPrerequisite>
-		  <skillRequirements>
-			<Crafting>7</Crafting>
-		  </skillRequirements>
-		  <recipeUsers Inherit="False">
-			<li>FabricationBench</li>
-		  </recipeUsers>
-		</recipeMaker>
 		<statBases>
-		  <WorkToMake>15000</WorkToMake>
 		  <Mass>2.5</Mass>
 		  <AccuracyTouch>0.7</AccuracyTouch>
 		  <AccuracyShort>0.65</AccuracyShort>
@@ -53,10 +46,6 @@
 		  <AccuracyLong>0.25</AccuracyLong>
 		  <RangedWeapon_Cooldown>1.40</RangedWeapon_Cooldown>
 		</statBases>
-		<costList>
-		  <Steel>50</Steel>
-		  <ComponentIndustrial>3</ComponentIndustrial>
-		</costList>
 		<verbs>
 		  <li>
 			<verbClass>Verb_Shoot</verbClass>
@@ -90,12 +79,6 @@
 			<cooldownTime>1.5</cooldownTime>
 		  </li>
 		</tools>
-		<weaponTags>
-		  <li>SpacerGun</li>
-		</weaponTags>
-		<tradeTags>
-		  <li>ExoticMisc</li>
-		</tradeTags>
 		<weaponClasses>
 		  <li>RangedLight</li>
 		</weaponClasses>
@@ -122,10 +105,13 @@
 		<hediffChance>0.4</hediffChance>
 	</ThingDef>
 	
-	<ThingDef ParentName="BaseHumanMakeableGun">
+	<ThingDef ParentName="BaseGunDestiny">
 		<defName>m_RatKing</defName>
 		<label>rat king</label>
 		<thingClass>DestinyMod.ThingExoticRatKing</thingClass>
+		<descriptionHyperlinks>
+		  <HediffDef>DS_RatKingEffect</HediffDef>
+		</descriptionHyperlinks>
 		<equipmentType>Primary</equipmentType>
 		<description>We are small, but we are legion.</description>
 		<graphicData>
@@ -135,17 +121,7 @@
 		</graphicData>
 		<equippedAngleOffset>0</equippedAngleOffset>
 		<soundInteract>Interact_ChargeRifle</soundInteract>
-		<recipeMaker>
-		  <researchPrerequisite>ChargedShot</researchPrerequisite>
-		  <skillRequirements>
-			<Crafting>7</Crafting>
-		  </skillRequirements>
-		  <recipeUsers Inherit="False">
-			<li>FabricationBench</li>
-		  </recipeUsers>
-		</recipeMaker>
 		<statBases>
-		  <WorkToMake>15000</WorkToMake>
 		  <Mass>2.5</Mass>
 		  <AccuracyTouch>0.8</AccuracyTouch>
 		  <AccuracyShort>0.65</AccuracyShort>
@@ -153,10 +129,6 @@
 		  <AccuracyLong>0.4</AccuracyLong>
 		  <RangedWeapon_Cooldown>1.10</RangedWeapon_Cooldown>
 		</statBases>
-		<costList>
-		  <Steel>50</Steel>
-		  <ComponentIndustrial>3</ComponentIndustrial>
-		</costList>
 		<verbs>
 		  <li>
 			<verbClass>Verb_Shoot</verbClass>
@@ -190,12 +162,6 @@
 			<cooldownTime>1.5</cooldownTime>
 		  </li>
 		</tools>
-		<weaponTags>
-		  <li>SpacerGun</li>
-		</weaponTags>
-		<tradeTags>
-		  <li>ExoticMisc</li>
-		</tradeTags>
 		<weaponClasses>
 		  <li>RangedLight</li>
 		</weaponClasses>
@@ -222,10 +188,13 @@
 		<hediffChance>0.5</hediffChance>
 	</ThingDef>
 	
-	<ThingDef ParentName="BaseHumanMakeableGun">
+	<ThingDef ParentName="BaseGunDestiny">
 		<defName>m_PolarisLance</defName>
 		<label>polaris lance</label>
 		<thingClass>DestinyMod.ThingExoticPolarisLance</thingClass>
+		<descriptionHyperlinks>
+		  <HediffDef>DS_PolarisLanceEffect</HediffDef>
+		</descriptionHyperlinks>
 		<equipmentType>Primary</equipmentType>
 		<description>I've forgotten so much of my past life, of my family. But when I hold this rifle, everything feels right. I feel like... I'm home.</description>
 		<graphicData>
@@ -235,17 +204,7 @@
 		</graphicData>
 		<equippedAngleOffset>0</equippedAngleOffset>
 		<soundInteract>Interact_ChargeRifle</soundInteract>
-		<recipeMaker>
-		  <researchPrerequisite>ChargedShot</researchPrerequisite>
-		  <skillRequirements>
-			<Crafting>7</Crafting>
-		  </skillRequirements>
-		  <recipeUsers Inherit="False">
-			<li>FabricationBench</li>
-		  </recipeUsers>
-		</recipeMaker>
 		<statBases>
-		  <WorkToMake>15000</WorkToMake>
 		  <Mass>2.5</Mass>
 		  <AccuracyTouch>0.8</AccuracyTouch>
 		  <AccuracyShort>0.7</AccuracyShort>
@@ -253,10 +212,6 @@
 		  <AccuracyLong>0.6</AccuracyLong>
 		  <RangedWeapon_Cooldown>1.60</RangedWeapon_Cooldown>
 		</statBases>
-		<costList>
-		  <Steel>50</Steel>
-		  <ComponentIndustrial>3</ComponentIndustrial>
-		</costList>
 		<verbs>
 		  <li>
 			<verbClass>Verb_Shoot</verbClass>
@@ -290,12 +245,6 @@
 			<cooldownTime>1.5</cooldownTime>
 		  </li>
 		</tools>
-		<weaponTags>
-		  <li>SpacerGun</li>
-		</weaponTags>
-		<tradeTags>
-		  <li>ExoticMisc</li>
-		</tradeTags>
 		<weaponClasses>
 		  <li>RangedLight</li>
 		</weaponClasses>
