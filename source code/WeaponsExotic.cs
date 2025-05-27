@@ -50,14 +50,20 @@ namespace DestinyMod
             {
                 Pawn pawn = equipmentTracker.pawn;
 
+                bool hasHediff = false;
+                if(CodeHelpers.PawnHasHediff(pawn, "DS_Arc") || CodeHelpers.PawnHasHediff(pawn, "DS_Arc_Safe"))
+                {
+                    hasHediff = true;
+                }
+
                 // if pawn has the arc proc hediff and doesnt have the supercharged effect
-                if (CodeHelpers.PawnHasHediff(pawn, "DS_Arc") && !CodeHelpers.PawnHasHediff(pawn, "DS_RiskrunnerEffect"))
+                if (hasHediff && !CodeHelpers.PawnHasHediff(pawn, "DS_RiskrunnerEffect"))
                 {
                     Hediff hediff = HediffMaker.MakeHediff(HediffDef.Named("DS_RiskrunnerEffect"), pawn);
                     pawn.health.AddHediff(hediff);
                 }
                 // if the pawn is no longer arc proc'd and still has the hediff
-                else if (!CodeHelpers.PawnHasHediff(pawn, "DS_Arc") && CodeHelpers.PawnHasHediff(pawn, "DS_RiskrunnerEffect"))
+                else if (!hasHediff && CodeHelpers.PawnHasHediff(pawn, "DS_RiskrunnerEffect"))
                 {
                     Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("DS_RiskrunnerEffect"));
                     pawn.health.RemoveHediff(hediff);

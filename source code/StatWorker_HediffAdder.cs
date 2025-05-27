@@ -57,12 +57,11 @@ namespace DestinyMod
 
         public override bool ShouldShowFor(StatRequest req)
         {
-            if (ValidReq(req))
+            if (ValidReq(req) && req.Thing?.def?.Verbs != null && req.Thing.def.Verbs.Count > 0)
             {
-                if (req.Thing.def.Verbs[0].defaultProjectile is ProjectileDestinyDef || req.Thing.def.Verbs[0].defaultProjectile is LaserBeamDestinyDef)
+                var projectile = req.Thing.def.Verbs[0].defaultProjectile;
+                if (projectile is ProjectileDestinyDef || projectile is LaserBeamDestinyDef)
                     return true;
-                else
-                    return false;
             }
             return false;
         }

@@ -18,7 +18,7 @@ namespace DestinyMod
 
             if (base.pawn.IsHashIntervalTick(180)) // Check every 180 ticks
             {
-                if (!CodeHelpers.PawnHasHediff(pawn, "DS_Arc"))
+                if (!CodeHelpers.PawnHasHediff(pawn, "DS_Arc") && !CodeHelpers.PawnHasHediff(pawn, "DS_Arc_Safe"))
                 {
                     Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("DS_RiskrunnerEffect"));
                     pawn.health.RemoveHediff(hediff);

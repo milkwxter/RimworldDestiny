@@ -2,9 +2,9 @@
 <Defs>
 
 <ThingDef ParentName="BenchBase">
-    <defName>EngramForge</defName>
-    <label>engram forge</label>
-    <description>A forge designed to turn raw silver into powerful engrams through highly-advanced means. It can also perform focused decryption of exotic engrams, if you have more silver.</description>
+    <defName>EngramStation</defName>
+    <label>engram station</label>
+    <description>A station designed to turn raw silver into powerful engrams through highly-advanced means. It can also perform focused decryption of exotic engrams, but only if you have more silver.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
       <texPath>Things/Building/TableEngram</texPath>

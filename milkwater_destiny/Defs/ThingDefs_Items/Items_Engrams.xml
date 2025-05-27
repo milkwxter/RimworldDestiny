@@ -6,7 +6,7 @@
 		<thingClass>ThingWithComps</thingClass>
 		<defName>DS_EngramExotic</defName>
 		<label>exotic engram</label>
-		<description>A glowing golden engram. Whoever decrypts it will reveal a powerful weapon.</description>
+		<description>A glowing golden engram, pulsing with energy. Whoever decrypts it will reveal a powerful weapon.\n\nOnly a pawn with a level of 5 or higher in intellectual can decrypt this powerful engram.</description>
 		<graphicData>
 			<texPath>Things/Items/m_engram_exotic</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -20,7 +20,24 @@
 			<MaxHitPoints>200</MaxHitPoints>
 			<Mass>1</Mass>
 			<Flammability>0.0</Flammability>
+			<WorkToMake>1500</WorkToMake>
 		</statBases>
+		<costList>
+		  <Silver>200</Silver>
+		</costList>
+		<recipeMaker>
+		  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		  <workSkill>Intellectual</workSkill>
+		  <recipeUsers>
+			<li>EngramStation</li>
+		  </recipeUsers>
+		  <researchPrerequisite>Machining</researchPrerequisite>
+		  <skillRequirements>
+			<Crafting>5</Crafting>
+			<Intellectual>5</Intellectual>
+		  </skillRequirements>
+		  <displayPriority>2000</displayPriority>
+		</recipeMaker>
 		<thingCategories>
 			<li>ItemsMisc</li>
 		</thingCategories>

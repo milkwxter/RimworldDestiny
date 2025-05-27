@@ -31,7 +31,7 @@ namespace DestinyMod
                 FleckMaker.AttachedOverlay(base.pawn, DefDatabase<FleckDef>.GetNamed("DS_Arc_Fleck"), new Vector3(0f, 0f, 0f));
 
                 // create a damage info
-                DamageInfo zapped = new DamageInfo(DamageDefOf.Burn, 10f, 1f, -1f, null);
+                DamageInfo zapped = new DamageInfo(DamageDefOf.Burn, 5f, 1f, -1f, null);
                 List<Pawn> pawnsToZap = new List<Pawn>();
 
                 // get nearby pawns of same faction

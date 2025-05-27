@@ -30,7 +30,7 @@
 		  <HediffDef>DS_RiskrunnerEffect</HediffDef>
 		</descriptionHyperlinks>
 		<equipmentType>Primary</equipmentType>
-		<description>Charge your soul and let the electrons sing.</description>
+		<description>"Charge your soul and let the electrons sing."\n\nWhen the wielder is inflicted with an arc proc, this weapon will power up.</description>
 		<graphicData>
 		  <texPath>Things/Weapons/m_riskrunner</texPath>
 		  <graphicClass>Graphic_Single</graphicClass>
@@ -113,7 +113,7 @@
 		  <HediffDef>DS_RatKingEffect</HediffDef>
 		</descriptionHyperlinks>
 		<equipmentType>Primary</equipmentType>
-		<description>We are small, but we are legion.</description>
+		<description>"We are small, but we are legion."\n\nFor every pawn holding this weapon that is around the wielder, their ranged damage will increase.</description>
 		<graphicData>
 		  <texPath>Things/Weapons/m_rat_king</texPath>
 		  <graphicClass>Graphic_Single</graphicClass>
@@ -196,7 +196,7 @@
 		  <HediffDef>DS_PolarisLanceEffect</HediffDef>
 		</descriptionHyperlinks>
 		<equipmentType>Primary</equipmentType>
-		<description>I've forgotten so much of my past life, of my family. But when I hold this rifle, everything feels right. I feel like... I'm home.</description>
+		<description>"I've forgotten so much of my past life, of my family. But when I hold this rifle, everything feels right. I feel like... I'm home."\n\nAfter hitting four shots with this weapon, the next shot will explode!</description>
 		<graphicData>
 		  <texPath>Things/Weapons/m_polaris_lance</texPath>
 		  <graphicClass>Graphic_Single</graphicClass>
